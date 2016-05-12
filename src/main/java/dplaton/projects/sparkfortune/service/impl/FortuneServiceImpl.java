@@ -36,7 +36,7 @@ public class FortuneServiceImpl implements FortuneService {
             return response;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage(), e);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
