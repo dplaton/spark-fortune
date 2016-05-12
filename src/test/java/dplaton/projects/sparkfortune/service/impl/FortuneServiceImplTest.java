@@ -1,6 +1,5 @@
 package dplaton.projects.sparkfortune.service.impl;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import org.junit.Assert;
 import org.junit.Test;
 
