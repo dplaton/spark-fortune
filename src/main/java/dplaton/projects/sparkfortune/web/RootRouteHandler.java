@@ -1,6 +1,7 @@
-package dplaton.projects.playground.web;
+package dplaton.projects.sparkfortune.web;
 
-import org.eclipse.jetty.http.MetaData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import spark.Request;
 import spark.Response;
@@ -14,16 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class RootRouteHandler implements RouteHandler{
 
+    private static final Logger LOG = LoggerFactory.getLogger(RootRouteHandler.class);
+
     public static final String ROUTE = "/";
 
     public String handleRouteGet(Request req, Response res) {
         return "Hello world";
-
     }
 
     public String handleRoutePost(Request req, Response res) {
         Spark.halt(HttpServletResponse.SC_BAD_REQUEST, "POST method not allowed");
-        return "";
+        return null;
     }
 
 }

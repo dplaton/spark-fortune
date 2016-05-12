@@ -1,4 +1,4 @@
-package dplaton.projects.playground.web;
+package dplaton.projects.sparkfortune.web;
 
 import spark.Request;
 import spark.Response;

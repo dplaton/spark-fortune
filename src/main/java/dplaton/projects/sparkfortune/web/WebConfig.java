@@ -1,4 +1,4 @@
-package dplaton.projects.playground.web;
+package dplaton.projects.sparkfortune.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +22,12 @@ public class WebConfig {
     @Autowired
     private EchoServiceRouteHandler echoServiceRouteHandler;
 
+    @Autowired
+    private FortuneServiceRouteHandler fortuneServiceRouteHandler;
+
     @PostConstruct
     public void postContruct() {
-        LOG.info("Running post construct");
+        LOG.debug("Running post construct");
         Spark.port(8080);
         setupRoutes();
     }
@@ -33,8 +36,11 @@ public class WebConfig {
         Spark.get(RootRouteHandler.ROUTE, (rootRouteHandler::handleRouteGet));
         Spark.post(RootRouteHandler.ROUTE, (rootRouteHandler::handleRoutePost));
 
-        Spark.get(EchoServiceRouteHandler.ROUTE_NAME, (echoServiceRouteHandler::handleRouteGet));
-        Spark.post(EchoServiceRouteHandler.ROUTE_NAME, (echoServiceRouteHandler::handleRoutePost));
+        Spark.get(EchoServiceRouteHandler.ROUTE, (echoServiceRouteHandler::handleRouteGet));
+        Spark.post(EchoServiceRouteHandler.ROUTE, (echoServiceRouteHandler::handleRoutePost));
+
+        Spark.get(FortuneServiceRouteHandler.ROUTE, (fortuneServiceRouteHandler::handleRouteGet));
+        Spark.post(FortuneServiceRouteHandler.ROUTE, (fortuneServiceRouteHandler::handleRoutePost));
     }
 
 }
