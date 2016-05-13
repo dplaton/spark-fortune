@@ -28,7 +28,6 @@ public class WebConfig {
     @PostConstruct
     public void postContruct() {
         LOG.debug("Running post construct");
-        Spark.port(8080);
         setupRoutes();
     }
 
